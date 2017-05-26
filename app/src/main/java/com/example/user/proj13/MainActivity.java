@@ -23,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
     int imgno = 0;
     int isStart = 0;
     int interval = 0;
+    int s_time = 0;
     Integer[] IMAGE_MENU = {R.drawable.bird, R.drawable.cat, R.drawable.dog, R.drawable.panda,
             R.drawable.penguin, R.drawable.tiger};
     mTask task;
@@ -79,7 +80,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             tv.setText("시작부터 " + values[0] + "초");
-            if(values[0] % interval ==0) setImage();
+            s_time++;
+            if(s_time == interval) {setImage();s_time = 0;}
         }
 
         @Override
